@@ -5,9 +5,11 @@ Simply mash your 'Q' and 'P' keys to race!
 
 ## Getting Started
 ```
-$git clone https://github.com/DylanLovesCoffee/javascript-racer.git
+$ git clone https://github.com/DylanLovesCoffee/javascript-racer.git
 ```
 ```
-$open index.html
+$ open index.html
 ```
 Now mash the Q and P keys!
+
+Or you can play with the live game here: https://powerful-lake-13307.herokuapp.com/
