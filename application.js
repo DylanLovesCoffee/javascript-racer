@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
-  function rollDie(){
+  function rollDie() {
     return Math.floor((Math.random() * 6) + 1)
   }
 
-  function movePlayer(player){
-    var playerTrack = document.getElementById(player);
+  function movePlayer(playerId) {
+    var playerTrack = document.getElementById(playerId);
     var position = playerTrack.getElementsByClassName('active');
     var newIndex = $(position).index() + rollDie();
     var finishLine = $(playerTrack).children().last().index()
@@ -18,22 +18,33 @@ $(document).ready(function(){
       $(playerTrack.children[newIndex]).addClass('active');
     }
 
-    playerWin(player)
+    playerWin(playerId)
   }
 
-  function playerWin(player){
-    var playerTrack = document.getElementById(player);
+  function playerWin(playerId) {
+    var playerTrack = document.getElementById(playerId);
     var position = playerTrack.getElementsByClassName('active');
     var finishLine = $(playerTrack).children().last().index();
 
     if($(position).index() === finishLine){
-      if(player === 'player1_track'){
+      if(playerId === 'player1_track'){
         var winner = 'Player 1'
-      } else if(player === 'player2_track'){
+      } else if(playerId === 'player2_track'){
         var winner = 'Player 2'
       }
       alert('Winner winner, chicken dinner! Congratulations, ' + winner + '!')
+      resetPositions()
     };
+  }
+
+  function resetPositions() {
+    var position = document.getElementsByClassName('active');
+    var tracks = $('.racer-table').find('tr')
+    $(position).removeClass('active');
+
+    for (var i = 0; i < tracks.length; i++) {
+      $(tracks[i].children[0]).addClass('active')
+    }
   }
 
   $(document).on('keyup', function(event){
