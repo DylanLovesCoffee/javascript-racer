@@ -4,6 +4,10 @@
   width: 20px;
 }
 
-.racer-table td.active {
-  background-color: black;
+#player1_track td.active {
+  background-color: blue;
+}
+
+#player2_track td.active {
+  background-color: red;
 }
